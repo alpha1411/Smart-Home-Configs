@@ -1,0 +1,61 @@
+esphome:
+  name: novostella_bulb_1
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "SSID"
+  password: "PASSWORD"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Novostella Bulb 1"
+    password: "PASSWORD"
+
+captive_portal:
+
+web_server:
+  port: 80
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  #If using without HomeAssistant un-comment line below or bulb will reboot every 15 mins.
+  #reboot_timeout: 0s
+
+ota:
+
+light:
+  - platform: rgbww
+    name: "Novostella-Bulb-1"
+    red: red
+    green: green
+    blue: blue
+    cold_white: cold_white
+    warm_white: warm_white
+    cold_white_color_temperature: 6500 K
+    warm_white_color_temperature: 2700 K
+    restore_mode: ALWAYS_ON
+
+output:
+  - platform: esp8266_pwm
+    id: red
+    pin: GPIO4
+
+  - platform: esp8266_pwm
+    id: green
+    pin: GPIO12
+
+  - platform: esp8266_pwm
+    id: blue
+    pin: GPIO14
+
+  - platform: esp8266_pwm
+    id: cold_white
+    pin: GPIO5
+
+  - platform: esp8266_pwm
+    id: warm_white
+    pin: GPIO13
