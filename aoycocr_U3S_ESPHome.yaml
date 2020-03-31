@@ -22,6 +22,8 @@ web_server:
   
 # Enable Home Assistant API
 api:
+  #If using without HomeAssistant un-comment line below or plug will reboot every 15 mins.
+  #reboot_timeout: 0s
 
 ota:
 
